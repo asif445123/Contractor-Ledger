@@ -2,21 +2,19 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useData } from "@/context/DataContext";
 import { useLanguage } from "@/context/LanguageContext";
-import SettingsModal from "@/components/settings/SettingsModal";
 import ThemeModal from "@/components/theme/ThemeModal";
 import ContactLinks from "@/components/ui/ContactLinks";
+import UserMenu from "@/components/layout/UserMenu";
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const { logout, user } = useAuth();
-  const { isDemo, exitDemoMode } = useData();
-  const { t, locale, setLocale } = useLanguage();
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  const { user } = useAuth();
+  const { isDemo } = useData();
+  const { t } = useLanguage();
   const [themeOpen, setThemeOpen] = useState(false);
 
   const NAV = [
@@ -28,15 +26,6 @@ export default function Sidebar() {
   ];
 
   const adminItem = user?.role === "admin" ? { href: "/admin", label: t.sidebar.admin, icon: "🛡️" } : null;
-
-  const handleLogout = async () => {
-    if (isDemo) {
-      exitDemoMode();
-    } else {
-      await logout();
-    }
-    router.push("/login");
-  };
 
   return (
     <aside className="md:w-60 shrink-0 bg-[var(--color-bg)] blueprint-grid text-white flex flex-col md:min-h-screen">
@@ -97,38 +86,8 @@ export default function Sidebar() {
         )}
       </nav>
 
-      <div className="px-4 py-3 md:px-5 md:py-4 border-t border-white/10">
-        {user && !isDemo && (
-          <p className="text-white/50 text-xs mb-2 truncate">{t.sidebar.welcomeUser}, {user.name} <br className="hidden md:block" /> · {user.email}</p>
-        )}
-        {isDemo && (
-          <p className="text-white/50 text-xs mb-2">{t.sidebar.demoUser}</p>
-        )}
-        <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-2">
-          <button
-            onClick={() => setLocale(locale === "ur" ? "en" : "ur")}
-            className="text-white/60 hover:text-[var(--color-accent)] text-xs"
-          >
-            🌐 {locale === "ur" ? "English" : "اردو"}
-          </button>
-          {!isDemo && (
-            <button
-              onClick={() => setSettingsOpen(true)}
-              className="text-white/60 hover:text-[var(--color-accent)] text-xs"
-            >
-              ⚙️ {t.settings.sidebarButton}
-            </button>
-          )}
-          <button
-            onClick={handleLogout}
-            className="text-white/60 hover:text-[var(--color-rust)] text-sm"
-          >
-            🚪 {t.sidebar.logout}
-          </button>
-        </div>
-      </div>
+      <UserMenu />
 
-      <SettingsModal open={settingsOpen} onClose={() => setSettingsOpen(false)} />
       <ThemeModal open={themeOpen} onClose={() => setThemeOpen(false)} />
     </aside>
   );
