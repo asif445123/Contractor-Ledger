@@ -62,7 +62,7 @@ export default function UserMenu() {
       </button>
 
       {open && (
-        <div className="absolute bottom-full left-4 right-4 md:left-5 md:right-5 mb-2 rounded-lg bg-[var(--color-bg-soft)] border border-white/10 shadow-xl overflow-hidden z-20">
+        <div className="absolute top-full mt-2 md:top-auto md:bottom-full md:mb-2 left-4 right-4 md:left-5 md:right-5 rounded-lg bg-[var(--color-bg-soft)] border border-white/10 shadow-xl overflow-hidden z-20">
           {!isDemo && user?.email && (
             <div className="px-4 py-3 border-b border-white/10">
               <p className="text-white/40 text-[10px] uppercase tracking-wide mb-0.5">{t.settings.email}</p>
