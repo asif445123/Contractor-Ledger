@@ -458,8 +458,8 @@ export const en = {
     backToLogin: "Go to Login",
   },
   contact: {
-    whatsapp: "WhatsApp",
-    email: "Contact Us",
+    whatsapp: "",
+    email: "",
     sidebarTitle: "Contact Us",
     whatsappDefaultMessage: "Hi, I need help with Contractor Ledger.",
   },
