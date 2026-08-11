@@ -458,8 +458,8 @@ export const ur = {
     backToLogin: "لاگ ان پر جائیں",
   },
    contact: {
-    whatsapp: "",
-    email: "",
+    whatsapp: "واٹس ایپ",
+    email: "رابطہ کریں",
     sidebarTitle: "رابطہ کریں",
     whatsappDefaultMessage: "السلام علیکم، مجھے ٹھیکیدار رجسٹر میں مدد چاہیے۔",
   },

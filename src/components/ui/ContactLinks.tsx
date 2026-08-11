@@ -94,16 +94,20 @@ export default function ContactLinks({ whatsappMessage, variant = "buttons" }: C
         href={buildWhatsAppLink(whatsappMessage)}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#25d366] text-white text-sm font-semibold hover:opacity-90"
+        aria-label={t.contact.whatsapp}
+        title={t.contact.whatsapp}
+        className="flex items-center justify-center w-10 h-10 rounded-md bg-[#25d366] text-white hover:opacity-90"
       >
-        <WhatsAppIcon /> {t.contact.whatsapp}
+        <WhatsAppIcon />
       </a>
       <button
         type="button"
         onClick={() => setFormOpen(true)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[var(--color-accent)] text-[var(--color-ink)] text-sm font-semibold hover:opacity-90"
+        aria-label={t.contact.email}
+        title={t.contact.email}
+        className="flex items-center justify-center w-10 h-10 rounded-md bg-[var(--color-accent)] text-[var(--color-ink)] hover:opacity-90"
       >
-        <MailIcon /> {t.contact.email}
+        <MailIcon />
       </button>
       {modal}
     </div>
