@@ -459,7 +459,7 @@ export const en = {
   },
   contact: {
     whatsapp: "WhatsApp",
-    email: "Email",
+    email: "Contact Us",
     sidebarTitle: "Contact Us",
     whatsappDefaultMessage: "Hi, I need help with Contractor Ledger.",
   },

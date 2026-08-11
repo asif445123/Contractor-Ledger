@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaCog, FaSignOutAlt, FaGlobe } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { useData } from "@/context/DataContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -62,11 +63,11 @@ export default function UserMenu() {
       </button>
 
       {open && (
-        <div className="absolute top-full mt-2 md:top-auto md:bottom-full md:mb-2 left-4 right-4 md:left-5 md:right-5 rounded-lg bg-[var(--color-bg-soft)] border border-white/10 shadow-xl overflow-hidden z-20">
+        <div className="absolute top-full mt-2 md:top-auto md:bottom-full md:mb-2 left-4 right-4 md:left-5 md:right-5 rounded-lg bg-[var(--color-paper)] border border-[var(--color-line)] shadow-xl overflow-hidden z-20">
           {!isDemo && user?.email && (
-            <div className="px-4 py-3 border-b border-white/10">
-              <p className="text-white/40 text-[10px] uppercase tracking-wide mb-0.5">{t.settings.email}</p>
-              <p className="text-white/85 text-sm truncate">{user.email}</p>
+            <div className="px-4 py-3 border-b border-[var(--color-line)]">
+              <p className="text-[var(--color-ink)] text-sm font-semibold truncate">{displayName}</p>
+              <p className="text-[var(--color-ink-soft)] text-xs truncate">{user.email}</p>
             </div>
           )}
 
@@ -76,24 +77,27 @@ export default function UserMenu() {
                 setSettingsOpen(true);
                 setOpen(false);
               }}
-              className="w-full text-left px-4 py-2.5 text-sm text-white/80 hover:bg-white/5 transition flex items-center gap-2"
+              className="w-full text-left px-4 py-2.5 text-sm text-[var(--color-ink)] hover:bg-[var(--color-paper-alt)] transition flex items-center gap-2.5"
             >
-              ⚙️ {t.settings.sidebarButton}
+              <FaCog className="text-[var(--color-ink-soft)]" size={15} />
+              {t.settings.sidebarButton}
             </button>
           )}
 
           <button
             onClick={() => setLocale(locale === "ur" ? "en" : "ur")}
-            className="w-full text-left px-4 py-2.5 text-sm text-white/80 hover:bg-white/5 transition flex items-center gap-2"
+            className="w-full text-left px-4 py-2.5 text-sm text-[var(--color-ink)] hover:bg-[var(--color-paper-alt)] transition flex items-center gap-2.5 border-t border-[var(--color-line)]"
           >
-            🌐 {locale === "ur" ? "English" : "اردو"}
+            <FaGlobe className="text-[var(--color-ink-soft)]" size={15} />
+            {locale === "ur" ? "English" : "اردو"}
           </button>
 
           <button
             onClick={handleLogout}
-            className="w-full text-left px-4 py-2.5 text-sm text-[var(--color-rust)] hover:bg-white/5 transition flex items-center gap-2 border-t border-white/10"
+            className="w-full text-left px-4 py-2.5 text-sm text-[var(--color-rust)] hover:bg-[var(--color-paper-alt)] transition flex items-center gap-2.5 border-t border-[var(--color-line)]"
           >
-            🚪 {t.sidebar.logout}
+            <FaSignOutAlt size={15} />
+            {t.sidebar.logout}
           </button>
         </div>
       )}

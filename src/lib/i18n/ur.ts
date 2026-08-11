@@ -459,7 +459,7 @@ export const ur = {
   },
    contact: {
     whatsapp: "واٹس ایپ",
-    email: "ای میل",
+    email: "رابطہ کریں",
     sidebarTitle: "رابطہ کریں",
     whatsappDefaultMessage: "السلام علیکم، مجھے ٹھیکیدار رجسٹر میں مدد چاہیے۔",
   },
