@@ -8,6 +8,8 @@ import ContactFormModal from "@/components/contact/ContactFormModal";
 interface ContactLinksProps {
   whatsappMessage?: string;
   variant?: "buttons" | "sidebar" | "navItem";
+  initialName?: string;
+  initialEmail?: string;
 }
 
 function WhatsAppIcon() {
@@ -34,11 +36,18 @@ function MailIcon() {
 // The Email "link" opens a Contact Us form in a modal instead of navigating
 // away — keeps the real address off the page (nothing to scrape) and works
 // for every visitor, not just people with a Google account signed in.
-export default function ContactLinks({ whatsappMessage, variant = "buttons" }: ContactLinksProps) {
+export default function ContactLinks({ whatsappMessage, variant = "buttons", initialName, initialEmail }: ContactLinksProps) {
   const { t } = useLanguage();
   const [formOpen, setFormOpen] = useState(false);
 
-  const modal = <ContactFormModal open={formOpen} onClose={() => setFormOpen(false)} />;
+  const modal = (
+    <ContactFormModal
+      open={formOpen}
+      onClose={() => setFormOpen(false)}
+      initialName={initialName}
+      initialEmail={initialEmail}
+    />
+  );
 
   if (variant === "navItem") {
     return (

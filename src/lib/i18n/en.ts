@@ -52,7 +52,7 @@ export const en = {
     pendingTitle: "Awaiting Approval",
     pendingMessage: "Your account has been created. Please contact on WhatsApp or Email for account approval.",
     backToLogin: "← Back to login",
-    viewDemo: " Or View Demo",
+    viewDemo: "View Demo",
     fullName: "Full Name",
     fullNamePlaceholder: "Enter your full name",
     email: "Email Address",

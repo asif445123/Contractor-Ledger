@@ -18,6 +18,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const labor = await Labor.findOne({ _id: id, userId: user.userId });
   if (!labor) return NextResponse.json({ error: t.laborNotFound }, { status: 404 });
 
+  const alreadyMarked = labor.attendance.some((a: { date: string }) => a.date === date);
+  if (alreadyMarked) {
+    return NextResponse.json({ error: t.attendanceAlreadyMarked }, { status: 409 });
+  }
+
   labor.attendance.push({ date, day: getDayName(date) });
   labor.att = labor.attendance.length;
   await labor.save();

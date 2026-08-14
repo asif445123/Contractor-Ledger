@@ -52,7 +52,7 @@ export const ur = {
     pendingTitle: "منظوری کا انتظار",
     pendingMessage: "آپ کا اکاؤنٹ بن گیا ہے۔ اکاونٹ کی اپرول کیلیئے وٹس ایپ یا ای میل کریں۔",
     backToLogin: "← لاگ ان پر واپس جائیں",
-    viewDemo: " یا ڈیمو دیکھیں",
+    viewDemo: " ڈیمو دیکھیں",
     fullName: "پورا نام",
     fullNamePlaceholder: "اپنا پورا نام درج کریں",
     email: "ای میل ایڈریس",

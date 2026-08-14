@@ -1,13 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "@/components/ui/Modal";
 import { Input, TextArea, PrimaryButton, GhostButton } from "@/components/ui/Field";
 import { useToast } from "@/components/ui/Toast";
 import { useLanguage } from "@/context/LanguageContext";
 import { apiFetch } from "@/lib/apiFetch";
 
-export default function ContactFormModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+interface ContactFormModalProps {
+  open: boolean;
+  onClose: () => void;
+  initialName?: string;
+  initialEmail?: string;
+}
+
+export default function ContactFormModal({ open, onClose, initialName, initialEmail }: ContactFormModalProps) {
   const { showToast } = useToast();
   const { t } = useLanguage();
 
@@ -15,6 +22,16 @@ export default function ContactFormModal({ open, onClose }: { open: boolean; onC
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
+
+  // Pre-fill whenever the modal opens, using whatever the caller already
+  // knows (logged-in user's name/email, or the email just typed on the
+  // login/rejected/pending screen) — still fully editable either way.
+  useEffect(() => {
+    if (open) {
+      setName(initialName ?? "");
+      setEmail(initialEmail ?? "");
+    }
+  }, [open, initialName, initialEmail]);
 
   function resetForm() {
     setName("");

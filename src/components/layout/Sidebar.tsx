@@ -61,7 +61,12 @@ export default function Sidebar() {
           );
         })}
 
-        <ContactLinks whatsappMessage={t.contact.whatsappDefaultMessage} variant="navItem" />
+        <ContactLinks
+          whatsappMessage={t.contact.whatsappDefaultMessage}
+          variant="navItem"
+          initialName={user?.name}
+          initialEmail={user?.email}
+        />
 
         <button
           onClick={() => setThemeOpen(true)}

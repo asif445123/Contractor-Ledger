@@ -19,7 +19,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const [rememberMe, setRememberMe] = useState(true);
+  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -158,26 +158,40 @@ export default function LoginPage() {
                 <div className="status-icon">🚫</div>
                 <h3 className="status-title">{t.login.rejectedTitle}</h3>
                 <p className="status-message">{t.login.rejectedMessage}</p>
-                <ContactLinks whatsappMessage={t.contact.whatsappDefaultMessage} />
-                <button className="link-button" onClick={() => setScreen("form")}>
-                  {t.login.backToLogin}
-                </button>
-                <button type="button" className="demo-button" onClick={handleViewDemo}>
-                  {t.login.viewDemo}
-                </button>
+                <ContactLinks
+                  whatsappMessage={t.contact.whatsappDefaultMessage}
+                  initialName={fullName || undefined}
+                  initialEmail={email || undefined}
+                />
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, flexWrap: "wrap" }}>
+                  <button className="link-button" onClick={() => setScreen("form")}>
+                    {t.login.backToLogin}
+                  </button>
+                  <span style={{ color: "var(--color-ink-soft)", fontSize: "0.85em" }}>{t.login.or}</span>
+                  <button type="button" className="demo-button" onClick={handleViewDemo}>
+                    {t.login.viewDemo}
+                  </button>
+                </div>
               </div>
             ) : screen === "pending" ? (
               <div className="status-card pending">
                 <div className="status-icon">⏳</div>
                 <h3 className="status-title">{t.login.pendingTitle}</h3>
                 <p className="status-message">{t.login.pendingMessage}</p>
-                <ContactLinks whatsappMessage={t.contact.whatsappDefaultMessage} />
-                <button className="link-button" onClick={() => setScreen("form")}>
-                  {t.login.backToLogin}
-                </button>
-                <button type="button" className="demo-button" onClick={handleViewDemo}>
-                  {t.login.viewDemo}
-                </button>
+                <ContactLinks
+                  whatsappMessage={t.contact.whatsappDefaultMessage}
+                  initialName={fullName || undefined}
+                  initialEmail={email || undefined}
+                />
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, flexWrap: "wrap" }}>
+                  <button className="link-button" onClick={() => setScreen("form")}>
+                    {t.login.backToLogin}
+                  </button>
+                  <span style={{ color: "var(--color-ink-soft)", fontSize: "0.85em" }}>{t.login.or}</span>
+                  <button type="button" className="demo-button" onClick={handleViewDemo}>
+                    {t.login.viewDemo}
+                  </button>
+                </div>
               </div>
             ) : screen === "forgot" ? (
               <>
@@ -355,10 +369,10 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* <div className="auth-footer">
+        <div className="auth-footer">
           <p className="verse-arabic">{t.login.verseArabic}</p>
           <p className="verse-translation">&quot;{t.login.verseTranslation}&quot;</p>
-        </div> */}
+        </div>
       </div>
     </div>
   );
