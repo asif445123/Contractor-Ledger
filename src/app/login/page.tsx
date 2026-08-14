@@ -369,10 +369,10 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <div className="auth-footer">
+        {/* <div className="auth-footer">
           <p className="verse-arabic">{t.login.verseArabic}</p>
           <p className="verse-translation">&quot;{t.login.verseTranslation}&quot;</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
