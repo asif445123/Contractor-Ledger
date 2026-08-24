@@ -6,6 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useData } from "@/context/DataContext";
 import { useLanguage } from "@/context/LanguageContext";
 import Sidebar from "./Sidebar";
+import SmallBannerAd from "@/components/ads/SmallBannerAd";
 
 const PUBLIC_ROUTES = ["/login", "/reset-password"];
 // /admin is never auto-redirected to /login. When unauthenticated it renders
@@ -62,8 +63,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       <Sidebar />
-      <main className="flex-1 min-h-screen bg-[var(--color-paper)] px-4 py-6 md:px-8 md:py-8">
-        <div className="max-w-6xl mx-auto">{children}</div>
+      <main className="flex-1 min-h-screen bg-[var(--color-paper)] px-4 py-6 md:px-8 md:py-8 flex flex-col">
+        <div className="max-w-6xl mx-auto w-full flex-1">{children}</div>
+        <footer className="max-w-6xl mx-auto w-full mt-8 pt-4 border-t border-[var(--color-line)]">
+          <SmallBannerAd />
+        </footer>
       </main>
     </div>
   );

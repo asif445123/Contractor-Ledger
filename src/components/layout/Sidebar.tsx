@@ -9,6 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import ThemeModal from "@/components/theme/ThemeModal";
 import ContactLinks from "@/components/ui/ContactLinks";
 import UserMenu from "@/components/layout/UserMenu";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -61,12 +62,7 @@ export default function Sidebar() {
           );
         })}
 
-        <ContactLinks
-          whatsappMessage={t.contact.whatsappDefaultMessage}
-          variant="navItem"
-          initialName={user?.name}
-          initialEmail={user?.email}
-        />
+        <ContactLinks whatsappMessage={t.contact.whatsappDefaultMessage} variant="navItem" />
 
         <button
           onClick={() => setThemeOpen(true)}
@@ -90,6 +86,8 @@ export default function Sidebar() {
           </Link>
         )}
       </nav>
+
+      <NativeBannerAd />
 
       <UserMenu />
 

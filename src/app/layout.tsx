@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import Script from "next/script";
 import "./globals.css";
 import { DataProvider } from "@/context/DataContext";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -116,7 +117,15 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full antialiased">
-       <ThemeProvider>
+        <Script
+          src="https://pl31002719.profitableratecpmnetwork.com/b5/b8/56/b5b856a7484185025ba73254b60ab90b.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://pl31002721.profitableratecpmnetwork.com/78/4e/a0/784ea03a69391150621273b571fb0941.js"
+          strategy="afterInteractive"
+        />
+        <ThemeProvider>
           <LanguageProvider>
             <ToastProvider>
               <ConfirmProvider>
