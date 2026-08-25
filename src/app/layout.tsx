@@ -118,7 +118,7 @@ export default async function RootLayout({
       </head>
       <body className="min-h-full antialiased">
         <Script
-          src="https://pl31002719.profitableratecpmnetwork.com/b5/b8/56/b5b856a7484185025ba73254b60ab90b.js"
+          src="https://indefinitelynutmegbile.com/b5/b8/56/b5b856a7484185025ba73254b60ab90b.js"
           strategy="afterInteractive"
         />
         <Script
