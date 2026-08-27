@@ -66,7 +66,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <main className="flex-1 min-h-screen bg-[var(--color-paper)] px-4 py-6 md:px-8 md:py-8 flex flex-col">
         <div className="max-w-6xl mx-auto w-full flex-1">{children}</div>
         <footer className="max-w-6xl mx-auto w-full mt-8 pt-4 border-t border-[var(--color-line)]">
-          {/* <SmallBannerAd /> */}
+          <SmallBannerAd />
         </footer>
       </main>
     </div>
