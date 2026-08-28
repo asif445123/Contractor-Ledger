@@ -93,7 +93,11 @@ export async function generateMetadata(): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true },
     },
-    icons: { icon: "/favicon.png" },
+    icons: {
+      icon: "/favicon.png",
+      apple: "/apple-touch-icon.png",
+    },
+    manifest: "/manifest.json",
   };
 }
 
@@ -109,6 +113,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir}>
       <head>
+        <meta name="theme-color" content="#0b1220" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -117,14 +122,14 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full antialiased">
-        <Script
+        {/* <Script
           src="https://indefinitelynutmegbile.com/b5/b8/56/b5b856a7484185025ba73254b60ab90b.js"
           strategy="afterInteractive"
         />
         <Script
           src="https://pl31002721.profitableratecpmnetwork.com/78/4e/a0/784ea03a69391150621273b571fb0941.js"
           strategy="afterInteractive"
-        />
+        /> */}
         <ThemeProvider>
           <LanguageProvider>
             <ToastProvider>
